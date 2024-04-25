@@ -1,8 +1,8 @@
-#define ledPin 7
+#define ledPin 8
 
 #include <SoftwareSerial.h>
 
-SoftwareSerial mySerial(3,2);
+SoftwareSerial mySerial(2,3);
 
 int state = 0;
 
@@ -13,6 +13,8 @@ void setup() {
   Serial.println("Initializing...");
   Serial.println("Waiting for pairing...");
 
+  pinMode(ledPin,INPUT);
+
 }
 
 void loop() {
@@ -22,7 +24,17 @@ void loop() {
   }
   if(mySerial.available()) 
   {
-    Serial.write(mySerial.read());//Forward what Software Serial received to Serial Port
+    String ch;
+    ch = mySerial.readString();
+    ch.trim();
+    Serial.println(ch);
+    if(ch == "on" || ch == "ON"){
+      digitalWrite(ledPin,true);
+      mySerial.write("Led prendido");
+    }else if(ch == "off" || ch == "OFF"){
+      digitalWrite(ledPin,false);
+      mySerial.write("Led apagado");
+    }
   }
   delay(20);
 }
