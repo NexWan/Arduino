@@ -24,8 +24,9 @@ void loop()
   apagarMotor();
   delay(4000);
 }
-void pasoSimple(){
-  for(int i = 0 ; i < pasos ; i ++){
+void pasoSimple(int sent){
+  if(sent == 1){
+    for(int i = 0 ; i < pasos ; i ++){
     apagarMotor();
     for(short j = 0 ; j < 4 ; j++){
         if(j == 0) digitalWrite(motor[j],1);
@@ -36,6 +37,8 @@ void pasoSimple(){
         delay(tiempo_espera);
     }
   }
+    }
+  
 }
 
 void pasoDoble(){
