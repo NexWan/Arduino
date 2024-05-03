@@ -37,7 +37,7 @@ void loop() {
   if (mySerial.available()) {
     mySerial.println("Bienvenido!");
     mySerial.println("Introduzca una de las siguientes opciones: \n");
-    mySerial.println("1) Paso simple \n 2) Paso simple inverso \n 3) Paso doble \n 4) Paso doble inverso \n 5) Medio paso \n 6) Medio paso inverso");
+    mySerial.println("1)  Paso simple \n 2) Paso simple inverso \n 3) Paso doble \n 4) Paso doble inverso \n 5) Medio paso \n 6) Medio paso inverso");
     String ch;
     ch = mySerial.readString();
     ch.trim();
