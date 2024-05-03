@@ -13,7 +13,7 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   val = analogRead(PIN);
-  val = val * 0.0048;
+  val = val * .0048;
   Serial.println(val);
   delay(100);
   if(val > 1.5)
